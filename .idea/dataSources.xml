@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="@d2-character-inventory.mysql.database.azure.com" uuid="d7f735a4-0bb1-4e75-899e-4c2116f7f506">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://d2-character-inventory.mysql.database.azure.com:3306?serverTimezone=UTC&amp;useSSL=true&amp;requireSSL=false</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="AZURE_SQL_DB_SERVER" value="/subscriptions/46fcafbc-417d-43f1-afed-48aff3eed615/resourceGroups/rg-app-java-finalproject-230330211638/providers/Microsoft.DBforMySQL/flexibleServers/d2-character-inventory" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
