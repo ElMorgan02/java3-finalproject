@@ -92,19 +92,7 @@
               <h3 class="card-title"><%= weapon.getName()%></h3>
               <p class="card-text"><%= weapon.getTier()%> <%= weapon.getType()%></p>
               <p class="card-text"><%= weapon.getPower()%> power</p>
-              <%--<p class="card-text"><%= String.format("%,.0f", (double)country.getPopulation()) %></p>--%>
 
-              <button type="button" class="btn btn-secondary btn-open"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      data-weapon-name="<%= weapon.getName() %>"
-                      data-weapon-power="<%= weapon.getPower() %>"
-                      data-kill-tracker="<%= weapon.getKill_Tracker() %>"
-
-                      <%--data-country-population="<%= country.getPopulation() %>"--%>
-              >
-                See more
-              </button>
               <% if (session != null && session.getAttribute("user") != null) {%>
                 <button type="submit" name="toggleFavorite" value="<%= weapon.getId() %>">
                   <% if (((User)session.getAttribute("user")).getFavorites(weapon)) {%>
