@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.StandardSocketOptions;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,18 +20,20 @@ public class WeaponDAO_CSV {
                 rowCount++;
                 if (rowCount != 1) {
                     String name = line[0];
+                    long Id = Long.parseLong(line[2].replace("\"", ""));
                     String Tier = line[4];
+                    String Type = line[5];
                     String Element = line[8];
                     int Power = Integer.parseInt(line[9]);
                     String Season = line[17];
                     int SeasonAsInt = 0;
-                    if(!(Season.equals("") || Season == null)){
+                    if(!(Season == null || Season.equals(""))){
                         SeasonAsInt = Integer.parseInt(Season);
                     }
 
                     boolean Crafted = Boolean.parseBoolean(line[41]);
                     int Kill_Tracker = Integer.parseInt(line[43]);
-                    weaponry.add(new Weapon(name, Tier, Element, Power, SeasonAsInt, Crafted, Kill_Tracker));
+                    weaponry.add(new Weapon(name, Id, Tier, Type, Element, Power, SeasonAsInt, Crafted, Kill_Tracker));
                 }
             }
         } catch (FileNotFoundException e) {

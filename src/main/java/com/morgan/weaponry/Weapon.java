@@ -1,6 +1,6 @@
 package com.morgan.weaponry;
 
-public class Weapon {
+public class Weapon implements Cloneable{
     /* All variables (65 total)
     Name,Hash,Id,Tag,Tier,Type,Source,Category,Element,Power,Power Limit,Masterwork Type,Masterwork Tier,Owner,Locked,
     Equipped,Year,Season,Event,Recoil,AA,Impact,Range,Zoom,Blast Radius,Velocity,Stability,ROF,Reload,Mag,Equip,
@@ -16,7 +16,7 @@ public class Weapon {
     private int Hash;
 
     /*Id*/
-    private int Id;
+    private long Id;
 
     /*Tag*/
     String Tag = null;
@@ -40,7 +40,7 @@ public class Weapon {
     private int Power;
 
     /*Power Limit*/
-    int Power_Limit = Integer.parseInt(null);
+    Integer Power_Limit = null;
 
     /*Masterwork Type*/
     private String Masterwork_Type;
@@ -217,7 +217,7 @@ public class Weapon {
         Hash = hash;
     }
 
-    public int getId() {
+    public long getId() {
         return Id;
     }
 
@@ -713,9 +713,11 @@ public class Weapon {
         Perks_17 = perks_17;
     }
 
-    public Weapon(String name,String Tier, String Element, int Power, int  Season, boolean Crafted, int Kill_Tracker) {
+    public Weapon(String name, long Id, String Tier, String Type, String Element, int Power, int  Season, boolean Crafted, int Kill_Tracker) {
         this.name = name;
+        this.Id = Id;
         this.Tier = Tier;
+        this.Type = Type;
         this.Element = Element;
         this.Power = Power;
         this.Season = Season;
@@ -727,8 +729,8 @@ public class Weapon {
 
     }
 
-    public Weapon(String name, int hash, int id, String tier, String type, String category, String element, int power,
-                  int power_limits, String masterwork_type, int masterwork_tier, String owner, boolean locked,
+    public Weapon(String name, int hash, long id, String tier, String type, String category, String element, int power,
+                  Integer power_limits, String masterwork_type, int masterwork_tier, String owner, boolean locked,
                   boolean equipped, int year, int season, int recoil, int aa, int impact, int range, int zoom,
                   int blast_radius, int velocity, int stability, int rof, int reload, int mag, int equip,
                   int charge_time, int draw_time, int accuracy, int charge_rate, int guard_resistance,
@@ -798,5 +800,10 @@ public class Weapon {
         this.Perks_15 = perks_15;
         this.Perks_16 = perks_16;
         this.Perks_17 = perks_17;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
